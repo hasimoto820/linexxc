@@ -57,8 +57,6 @@ def callback():
             event.message.text = 'world'
         elif event.message.text == '鬼滅' :
             event.message.text = 'の刃'
-        else
-            event.message.text = event.message.text + 'ですね'
 
         line_bot_api.reply_message(
             event.reply_token,
