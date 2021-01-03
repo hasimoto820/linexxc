@@ -52,7 +52,7 @@ def callback():
         if not isinstance(event.message, TextMessage):
             continue
 
-        if event.message.text == 'hello' :
+        if event.message.text == 'Hello' :
             event.message.text = 'world'
 
         line_bot_api.reply_message(
