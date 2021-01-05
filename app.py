@@ -14,6 +14,9 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
+import gurunavi
+
+
 
 app = Flask(__name__)
 
@@ -57,6 +60,11 @@ def callback():
             event.message.text = 'world'
         elif event.message.text == '鬼滅' :
             event.message.text = 'の刃'
+        elif event.message.txt == 'そば' or event.message.txt == 'soba' or event.message.txt == 'Soba' :
+            event.message.text = gurunavi.getname()
+            #event.message.text = 'そばを探します'
+
+
         else :
             event.message.text = event.message.text + 'ですね'
 
