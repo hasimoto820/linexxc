@@ -72,6 +72,7 @@ def base_api():
 
     # 関数を実行し、お店の名前の list を取得
     get_name(read_data)
+    return(list_name)
 #*******************   gurunavi             ***************
 
 
