@@ -108,7 +108,7 @@ def callback():
             # 取得した情報をJSON形式から辞書型に変換
             read_data = json.loads(data)["rest"]
 
-            event.message.text = read_data
+            event.message.text = str(read_data)
 
             # お店の名前の一覧を格納する list の作成
             list_name = []
