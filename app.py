@@ -90,6 +90,8 @@ def callback():
             event.message.text = 'world'
         elif event.message.text == '鬼滅' :
             event.message.text = 'の刃'
+        elif event.message.text == 'か' :
+            event.message.text = 'たな'
         elif event.message.txt == 'そば' :
 
 
