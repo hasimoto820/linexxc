@@ -90,18 +90,11 @@ def callback():
             event.message.text = 'world'
         elif event.message.text == '鬼滅' :
             event.message.text = 'の刃'
-        elif event.message.txt == 'そば' or event.message.txt == 'soba' or event.message.txt == 'Soba' :
+        elif event.message.txt == 'そば' :
 
 
             event.message.text = 'mada tochu'
 
-            params = urllib.parse.urlencode({
-                'keyid': key,
-                # 'name' : shop_name,　#店名も含める場合はコメントアウト外す
-                'category_s' : g_code,
-                'address' : address
-            })
-            url = base_url + '?' + params
             #print(url)
             #response = urllib.request.urlopen(url,context=context)
             #data = response.read()
