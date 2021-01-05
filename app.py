@@ -127,7 +127,7 @@ def callback():
         elif event.message.text == '鬼滅' :
             event.message.text = 'の刃'
         elif event.message.txt == 'そば' or event.message.txt == 'soba' or event.message.txt == 'Soba' :
-            event.message.text = base_api()
+            event.message.text = str(base_api())
             #event.message.text = 'そばを探します'
 
 
