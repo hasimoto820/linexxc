@@ -15,7 +15,7 @@ key = '90dc4b25c570c60b83ebefe5d98aedcc'
 
 ##### 上記の key は、ぐるなびAPI のアカウントを作成した際、取得したkeyidを指定
 # shop_name = "焼肉"　#店名も含める場合はコメントアウト外す
-g_code = 'RSFST03001' # 寿司のコード
+g_code = 'RSFST02002' # 寿司のコード
 address = '那覇'
 # API を使う関数の定義
 def gnavi_api(g_code,address):
