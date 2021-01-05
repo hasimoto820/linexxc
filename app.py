@@ -35,7 +35,7 @@ key = '90dc4b25c570c60b83ebefe5d98aedcc'
 ##### 上記の key は、ぐるなびAPI のアカウントを作成した際、取得したkeyidを指定
 # shop_name = "焼肉"　#店名も含める場合はコメントアウト外す
 #g_code = 'RSFST03001' # 寿司のコード
-g_code = 'RSFST08006' # 沖縄そば
+g_code = 'RSFST08011' # ラーメンその他
 address = '那覇'
 
 #*******************   gurunavi             ***************
