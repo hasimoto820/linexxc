@@ -103,8 +103,8 @@ def callback():
             })
             url = base_url + '?' + params
             #print(url)
-            response = urllib.request.urlopen(url,context=context)
-            data = response.read()
+            #response = urllib.request.urlopen(url,context=context)
+            #data = response.read()
 
 
         else :
