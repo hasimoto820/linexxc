@@ -102,13 +102,13 @@ def callback():
             })
             url = base_url + '?' + params
             #print(url)
-            event.message.text = 'mada tochu'
             response = urllib.request.urlopen(url,context=context)
             data = response.read()
 
             # 取得した情報をJSON形式から辞書型に変換
             read_data = json.loads(data)["rest"]
 
+            event.message.text = 'mada tochu'
 
             # お店の名前の一覧を格納する list の作成
             list_name = []
