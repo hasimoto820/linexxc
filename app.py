@@ -93,6 +93,7 @@ def callback():
         elif event.message.txt == 'そば' or event.message.txt == 'soba' or event.message.txt == 'Soba' :
 
 
+            event.message.text = 'mada tochu'
 
             params = urllib.parse.urlencode({
                 'keyid': key,
@@ -119,7 +120,7 @@ def callback():
                 list_name.append(dic.get("name"))
             ret = list_name
 
-            event.message.text = str(ret)
+            #event.message.text = str(ret)
             #event.message.text = 'そばを探します'
 
 
