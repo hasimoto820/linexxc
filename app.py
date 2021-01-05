@@ -14,6 +14,40 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
+#import gurunavi
+
+
+
+#*******************   gurunavi             ***************
+import json
+import urllib.request
+import ssl
+#認証方法をTLSv1に指定
+context = ssl.SSLContext(ssl.PROTOCOL_TLSv1)
+
+# API に渡すパラメータの値の指定
+# https://api.gnavi.co.jp/api/manual/restsearch/
+# https://api.gnavi.co.jp/api/tools/     #ここでAPIのテストができる
+base_url = "https://api.gnavi.co.jp/RestSearchAPI/v3/"
+
+key = '90dc4b25c570c60b83ebefe5d98aedcc'
+
+##### 上記の key は、ぐるなびAPI のアカウントを作成した際、取得したkeyidを指定
+# shop_name = "焼肉"　#店名も含める場合はコメントアウト外す
+#g_code = 'RSFST03001' # 寿司のコード
+g_code = 'RSFST08006' # 沖縄そば
+address = '那覇'
+
+#*******************   gurunavi             ***************
+
+
+
+
+
+
+
+
+
 
 app = Flask(__name__)
 
@@ -51,6 +85,46 @@ def callback():
             continue
         if not isinstance(event.message, TextMessage):
             continue
+
+        # 対話形式にする
+        if event.message.text == 'Hello' :
+            event.message.text = 'world'
+        elif event.message.text == '鬼滅' :
+            event.message.text = 'の刃'
+        elif event.message.text == 'そば' or event.message.text == 'soba' or event.message.text == 'Soba' :
+
+
+            params = urllib.parse.urlencode({
+                'keyid': key,
+                # 'name' : shop_name,　#店名も含める場合はコメントアウト外す
+                'category_s' : g_code,
+                'address' : address
+            })
+            url = base_url + '?' + params
+            #print(url)
+            response = urllib.request.urlopen(url,context=context)
+            data = response.read()
+
+            # 取得した情報をJSON形式から辞書型に変換
+            read_data = json.loads(data)["rest"]
+
+            # お店の名前の一覧を格納する list の作成
+            list_name = []
+
+            # お店の名前の list を取得
+            for dic in read_data:
+                list_name.append(dic.get("name"))
+            ret = list_name
+
+            event.message.text = str(ret)
+
+
+
+
+
+
+        else :
+            event.message.text = event.message.text + 'ですね'
 
         line_bot_api.reply_message(
             event.reply_token,
