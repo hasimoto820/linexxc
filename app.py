@@ -56,7 +56,7 @@ def get_name(read_data):
     for dic in read_data:
         list_name.append(dic.get("name"))
         #list_name.append(dic.get("address")) #住所を取得したい場合はこちら
-    return list_name
+    #return list_name
 
 
 def base_api():
