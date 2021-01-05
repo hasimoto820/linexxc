@@ -90,16 +90,38 @@ def callback():
             event.message.text = 'world'
         elif event.message.text == '鬼滅' :
             event.message.text = 'の刃'
-        elif event.message.text == 'か' :
-            event.message.text = 'たな'
-        elif event.message.txt == 'そば' :
+        elif event.message.text == 'そば' or event.message.text == 'soba' or event.message.text == 'Soba' :
 
 
-            event.message.text = 'mada tochu'
 
+            params = urllib.parse.urlencode({
+                'keyid': key,
+                # 'name' : shop_name,　#店名も含める場合はコメントアウト外す
+                'category_s' : g_code,
+                'address' : address
+            })
+            url = base_url + '?' + params
             #print(url)
-            #response = urllib.request.urlopen(url,context=context)
-            #data = response.read()
+            event.message.text = 'mada tochu'
+            response = urllib.request.urlopen(url,context=context)
+            data = response.read()
+
+            # 取得した情報をJSON形式から辞書型に変換
+            read_data = json.loads(data)["rest"]
+
+
+            # お店の名前の一覧を格納する list の作成
+            list_name = []
+
+
+
+            # お店の名前の list を取得
+            for dic in read_data:
+                list_name.append(dic.get("name"))
+            ret = list_name
+
+            #event.message.text = str(ret)
+            #event.message.text = 'そばを探します'
 
 
         else :
