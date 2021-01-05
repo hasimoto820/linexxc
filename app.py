@@ -106,23 +106,6 @@ def callback():
             response = urllib.request.urlopen(url,context=context)
             data = response.read()
 
-            # 取得した情報をJSON形式から辞書型に変換
-            read_data = json.loads(data)["rest"]
-
-
-            # お店の名前の一覧を格納する list の作成
-            list_name = []
-
-
-
-            # お店の名前の list を取得
-            for dic in read_data:
-                list_name.append(dic.get("name"))
-            ret = list_name
-
-            #event.message.text = str(ret)
-            #event.message.text = 'そばを探します'
-
 
         else :
             event.message.text = event.message.text + 'ですね'
